@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Cotizador
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sistema web de cotización para una empresa de prendas de vestir con estampado personalizado. Carga el inventario desde una hoja de Google publicada como CSV, permite seleccionar producto, talla y color, agregar logos (por ubicación y número de colores) y genera una cotización con el cálculo total.
 
-## Available Scripts
+## Características principales
 
-In the project directory, you can run:
+- Carga de inventario desde Google Sheets (CSV) mediante Papaparse.
+- Selección guiada de producto con filtros encadenados (tipo, fabricante, producto, talla, color).
+- Configuración de precios de logos por ubicación y costo por color adicional.
+- Cálculo automático de totales (productos + logos).
+- Confirmación de pedido que descuenta el inventario local.
+- Vista de inventario actual con stock disponible.
+- Interfaz con Tailwind CSS.
 
-### `npm start`
+## Tecnologías usadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React 19 (Create React App)
+- JavaScript
+- Papaparse (parseo de CSV)
+- Tailwind CSS
+- Jest + Testing Library (tests)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Requisitos previos
 
-### `npm test`
+- Node.js 18+ y npm
+- Una Google Sheet publicada como CSV (configurar en `src/App.js`, variable `GOOGLE_SHEET_CSV_URL`)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Cómo ejecutar
 
-### `npm run build`
+```bash
+# Instalar dependencias
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Configurar la URL de la hoja de Google en src/App.js (GOOGLE_SHEET_CSV_URL)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Servidor de desarrollo (http://localhost:3000)
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Scripts disponibles
 
-### `npm run eject`
+| Script | Descripción |
+|--------|-------------|
+| `npm start` | Servidor de desarrollo |
+| `npm run build` | Build de producción en `build/` |
+| `npm test` | Ejecuta los tests en modo watch |
+| `npm run eject` | Expone la configuración de CRA (irreversible) |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Estructura del proyecto
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+src/
+├── App.js         # Lógica principal del sistema de cotización
+├── index.js       # Punto de entrada
+├── index.css      # Estilos globales
+└── App.test.js    # Pruebas del componente
+```
